@@ -126,10 +126,11 @@ Pod::Spec.new do |s|
     sp.source_files = "#{cast_dir}/**/*.{h,m}"
     sp.exclude_files = "#{cast_dir}/*Tests/**/*"
     sp.private_header_files = "#{cast_dir}/**/*_Private.h"
-
+    sp.framework = 'AdSupport'
     sp.vendored_frameworks = 'AmazonFling.framework', 'Bolts.framework'
     sp.xcconfig = {
-        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ConnectSDK/FireTV",
+        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ConnectSDK/modules/firetv",
+        "OTHER_LDFLAGS" => "-lc++"
     }
   end
 end
