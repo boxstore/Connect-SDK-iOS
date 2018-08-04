@@ -118,4 +118,15 @@ Pod::Spec.new do |s|
         "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
     }
   end
+
+  s.subspec 'FireTV' do |sp|
+    cast_dir = "modules/firetv"
+
+    sp.dependency 'ConnectSDK/Core'
+    sp.source_files = "#{cast_dir}/**/*.{h,m}"
+    sp.exclude_files = "#{cast_dir}/*Tests/**/*"
+    sp.private_header_files = "#{cast_dir}/**/*_Private.h"
+
+    sp.vendored_frameworks = 'AmazonFling.framework', 'Bolts.framework'
+  end
 end
