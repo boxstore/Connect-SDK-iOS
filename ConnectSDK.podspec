@@ -128,5 +128,8 @@ Pod::Spec.new do |s|
     sp.private_header_files = "#{cast_dir}/**/*_Private.h"
 
     sp.vendored_frameworks = 'AmazonFling.framework', 'Bolts.framework'
+    sp.xcconfig = {
+        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/ConnectSDK/FireTV",
+    }
   end
 end
