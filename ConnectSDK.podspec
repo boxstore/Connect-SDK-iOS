@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ConnectSDK"
-  s.version      = "1.6.1.3"
+  s.version      = "1.6.1.4"
   s.summary      = "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms."
 
   s.description  = <<-DESC
@@ -36,7 +36,9 @@ Pod::Spec.new do |s|
                      :submodules => true }
 
   s.xcconfig = {
-      "OTHER_LDFLAGS" => "$(inherited) -ObjC",
+      "OTHER_LDFLAGS" => "$(inherited) -ObjC"
+  }
+  s.pod_target_xcconfig = {
       "ENABLE_BITCODE" => "NO",
       "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES"
   }
