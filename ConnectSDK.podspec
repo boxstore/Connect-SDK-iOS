@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ConnectSDK"
-  s.version      = "1.6.1.2"
+  s.version      = "1.6.2.0"
   s.summary      = "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms."
 
   s.description  = <<-DESC
@@ -37,6 +37,10 @@ Pod::Spec.new do |s|
 
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC"
+  }
+  s.static_framework = true
+  s.pod_target_xcconfig = {
+      "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES"
   }
 
   s.requires_arc = true
@@ -94,6 +98,7 @@ Pod::Spec.new do |s|
     sp.requires_arc = true
 
     sp.dependency 'ConnectSDK/no-arc'
+    sp.dependency 'GCDWebServer', '~> 3.2'
   end
 
   s.subspec 'no-arc' do |sp|
@@ -111,7 +116,7 @@ Pod::Spec.new do |s|
     sp.exclude_files = "#{cast_dir}/*Tests/**/*"
     sp.private_header_files = "#{cast_dir}/**/*_Private.h"
 
-    cast_version = "2.7.1"	
+    cast_version = "~> 2.0"	
     sp.dependency "google-cast-sdk", cast_version
     sp.framework = "GoogleCast"
     sp.xcconfig = {
