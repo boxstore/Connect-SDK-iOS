@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ConnectSDK"
-  s.version      = "1.6.1.9"
+  s.version      = "1.6.2.0"
   s.summary      = "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms."
 
   s.description  = <<-DESC
@@ -98,6 +98,7 @@ Pod::Spec.new do |s|
     sp.requires_arc = true
 
     sp.dependency 'ConnectSDK/no-arc'
+    sp.dependency 'GCDWebServer', '~> 3.2'
   end
 
   s.subspec 'no-arc' do |sp|
